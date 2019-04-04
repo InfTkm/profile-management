@@ -1,0 +1,33 @@
+{
+  "name": "matchy",
+  "version": "1.0.0",
+  "description": "309 Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csc309-winter-2019/team24.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csc309-winter-2019/team24/issues"
+  },
+  "homepage": "https://github.com/csc309-winter-2019/team24#readme",
+  "dependencies": {
+    "express": "*",
+    "body-parser": "*",
+    "mongodb": "*",
+    "hbs": "*",
+    "express-session": "*",
+    "bcryptjs": "^2.4.3",
+    "crypto-js": "^3.1.9-1",
+    "handlebars": "^4.0.12",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.3.12",
+    "validator": "^10.9.0"
+  }
+}

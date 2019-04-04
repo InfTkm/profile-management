@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Search For Teammate</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/search_teammate.css">
+  <link rel="stylesheet" href="styles/common.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body class="my-bg">
+  <!-- Navbar from bootstrap docs -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light my-nav-flow">
+    <a href="index.html"><img src="./images/logo/logo.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
+        <a class="nav-item nav-link active" href="/find">Find</a>
+        <a class="nav-item nav-link" href="/projects">Projects</a>
+        <a class="nav-item nav-link" href="/invitation">Invitation</a>
+      </div>
+    </div>
+    <div class="dropdown mr-2">
+			<button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+				aria-haspopup="true" aria-expanded="false">
+				Settings
+			</button>
+			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+				<a class="dropdown-item" href="/account_setting">Account Settings</a>
+				<a class="dropdown-item" href="/users/logout">Log out</a>
+			</div>
+		</div>
+  </nav>
+
+  <!-- modals that conveniently create new school/course/project instances -->
+  <div class="modal fade" id="new_data_modal" tabindex="-1" role="dialog" aria-labelledby="new_data_modal_label"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="new_data_modal_label">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="new_data_modal_body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="new_data_finish">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="vertical-center pt-5">
+    <div class="h-100 row align-items-center justify-content-center">
+      <div id="content" class="shadow-lg p-5 mb-5 bg-white rounded col-lg-10">
+        <div class="input_form">
+          <form class="border p-5">
+            <div class="form-group">
+              <label for="school">School</label>
+              <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">Your School name
+                  <span class="caret"></span></button>
+                <ul class="dropdown-menu" id="school_drop_down">
+                  <li><a href="#">UofT</a></li>
+                  <li><a href="#">Ryerson</a></li>
+                  <!-- list the schools above using the above code -->
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#" data-toggle="modal" data-target="#new_data_modal" id="add_school">
+                      Your School not on the list? Add your school to our list!
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <br />
+            <div class="form-group">
+              <label for="course_code">Course Code</label>
+              <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">Course Code
+                  <span class="caret"></span></button>
+                <ul class="dropdown-menu" id="course_drop_down">
+                  <li><a href="#">CSC309</a></li>
+                  <!-- list the schools above using the above code -->
+                  <li class="divider"></li>
+                  <li><a href="#" data-toggle="modal" data-target="#new_data_modal" id="add_course">
+                      Cannot find the course you are looking for? Add it to our list!</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+
+            <br />
+            <div class="form-group">
+              <label for="term">Term</label>
+              <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">Term
+                  <span class="caret"></span></button>
+                <ul class="dropdown-menu" id="term_drop_down">
+                  <!-- <li><a href="#">Fall</a></li>
+                  <li><a href="#">Winter</a></li>
+                  <li><a href="#">Year</a></li>
+                  <li><a href="#">Summer</a></li> -->
+                </ul>
+              </div>
+            </div>
+
+            <br />
+            <div class="form-group">
+              <label for="project_name">Project Name</label>
+              <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">Project Name
+                  <span class="caret"></span></button>
+                <ul class="dropdown-menu" id="project_drop_down">
+                  <li><a href="#">A1 for CSC309 @ UOFT</a></li>
+                  <!-- list the schools above using the above code -->
+                  <li class="divider"></li>
+                  <li><a href="#" data-toggle="modal" data-target="#new_data_modal" id="add_prj">
+                      Cannot find the project you are looking for? Add it to our list!
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+
+            <br />
+            <div class="form-group">
+              <label for="min_rating">Minimum rating</label>
+              <input class="form-control-range" type="range" min="0" max="5" step="0.1" value="0"
+                id="min_rating_input" />
+              <output id="min_rating_v" for="min_rating">0</output>
+            </div>
+
+            <br />
+            <br />
+            <a type="submit" class="btn btn-primary" href="matching_teammate.html">Search</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="scripts/public_data.js"></script>
+  <script src="scripts/search_teammate_interaction.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

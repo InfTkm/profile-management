@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Projects</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles/inbox.css">
+    <link rel="stylesheet" href="styles/common.css">
+    
+</head>
+
+<body class='overflow-hidden  my-bg'>
+    <!-- Navbar from bootstrap docs -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light my-nav">
+        <a href="index.html"><img src="./images/logo/logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
+                <a class="nav-item nav-link" href="/find">Find</a>
+                <a class="nav-item nav-link active" href="#">Projects</a>
+                <a class="nav-item nav-link" href="/invitation">Invitation</a>
+                <!-- <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+            </div>
+        </div>
+    </nav>
+
+    <!--actual page content-->
+    <!--First three divs are for floating card visual effect-->
+    <div class="vertical-center pt-5">
+        <div class="h-100 row align-items-center justify-content-center" style="overflow-y: auto">
+        	<div class="container">
+        		<div class="add-btn-container">
+	        		<a href="add_Project.html" class="btn btn-primary">Add Project</a>
+				</div>
+
+        		<!-- <div id="content" class="shadow-lg p-5 rounded col-lg-10 d-flex flex-column" style="margin: auto;"> -->
+                <div id="content" class="row text-center shadow-lg rounded project-list-container">
+                	<!--One demo project-->
+			        <div class="col-md-4 col-sm-6">
+			            <div class="thumbnail bg-white m-2 rounded">
+			            	<div class="caption">
+			            		<h5>CSC309 Assignment 1</h5>
+			            	</div>
+			                
+			                <!-- Limit the description to 200 characters maximum -->
+			                <p class="m-3">Spicy jalapeno bacon ipsum dolor amet leberkas meatball beef strip steak doner prosciutto. Porchetta corned beef ball tip beef ribs spare ribs pork belly. Turducken alcatra short ribs shankle bacon meatball ground.</p>
+			                <a href="#demo" class="btn btn-primary" data-toggle="collapse">View Teammates</a>
+							<div id="demo" class="collapse">
+								<ul class="team-list">
+									<li>Reymond</li>
+									<li>Fiona</li>
+									<li>Ruby</li>
+								</ul>
+							</div>
+			                <div>
+			                	<button id="Finish" class="btn btn-primary rounded action-btn" type="button">Finish</button>
+			                	<button id='Quit' class="btn btn-danger rounded action-btn" type="button">Quit</button>
+			                </div>
+			            </div>
+			        </div>
+
+			        <div class="col-md-4 col-sm-6">
+			            <div class="thumbnail bg-white m-2 rounded">
+			            	<div class="caption">
+			            		<h5>CSC309 Assignment 1</h5>
+			            	</div>
+			                
+			                <!-- Limit the description to 200 characters maximum -->
+			                <p class="m-3">Spicy jalapeno bacon ipsum dolor amet leberkas meatball beef strip steak doner prosciutto. Porchetta corned beef ball tip beef ribs spare ribs pork belly. Turducken alcatra short ribs shankle bacon meatball ground.</p>
+			                <a href="#demo1" class="btn btn-primary" data-toggle="collapse">View Teammates</a>
+							<div id="demo1" class="collapse">
+								<ul class="team-list">
+									<li>Reymond</li>
+									<li>Fiona</li>
+									<li>Ruby</li>
+								</ul>
+							</div>
+			                <div>
+			                	<button id="Finish" class="btn btn-primary rounded action-btn" type="button">Finish</button>
+			                	<button id='Quit' class="btn btn-danger rounded action-btn" type="button">Quit</button>
+			                </div>
+			            </div>
+			        </div>
+
+			        <div class="col-md-4 col-sm-6">
+			            <div class="thumbnail bg-white m-2 rounded">
+			            	<div class="caption">
+			            		<h5>CSC309 Assignment 1</h5>
+			            	</div>
+			                
+			                <!-- Limit the description to 200 characters maximum -->
+			                <p class="m-3">Spicy jalapeno bacon ipsum dolor amet leberkas meatball beef strip steak doner prosciutto. Porchetta corned beef ball tip beef ribs spare ribs pork belly. Turducken alcatra short ribs shankle bacon meatball ground.</p>
+			                <a href="#demo2" class="btn btn-primary" data-toggle="collapse">View Teammates</a>
+							<div id="demo2" class="collapse">
+								<ul class="team-list">
+									<li>Reymond</li>
+									<li>Fiona</li>
+									<li>Ruby</li>
+								</ul>
+							</div>
+			                <div>
+			                	<button id="Finish" class="btn btn-primary rounded action-btn" type="button">Finish</button>
+			                	<button id='Quit' class="btn btn-danger rounded action-btn" type="button">Quit</button>
+			                </div>
+			            </div>
+			        </div>
+
+			        <div class="col-md-4 col-sm-6">
+			            <div class="thumbnail bg-white m-2 rounded">
+			            	<div class="caption">
+			            		<h5>CSC309 Assignment 1</h5>
+			            	</div>
+			                
+			                <!-- Limit the description to 200 characters maximum -->
+			                <p class="m-3">Spicy jalapeno bacon ipsum dolor amet leberkas meatball beef strip steak doner prosciutto. Porchetta corned beef ball tip beef ribs spare ribs pork belly. Turducken alcatra short ribs shankle bacon meatball ground.</p>
+			                <a href="#demo3" class="btn btn-primary" data-toggle="collapse">View Teammates</a>
+							<div id="demo3" class="collapse">
+								<ul class="team-list">
+									<li>Reymond</li>
+									<li>Fiona</li>
+									<li>Ruby</li>
+								</ul>
+							</div>
+			                <div>
+			                	<button id="Finish" class="btn btn-primary rounded action-btn" type="button">Finish</button>
+			                	<button id='Quit' class="btn btn-danger rounded action-btn" type="button">Quit</button>
+			                </div>
+			            </div>
+			        </div>
+
+			        <div class="col-md-4 col-sm-6">
+			            <div class="thumbnail bg-white m-2 rounded">
+			            	<div class="caption">
+			            		<h5>CSC309 Assignment 1</h5>
+			            	</div>
+			                
+			                <!-- Limit the description to 200 characters maximum -->
+			                <p class="m-3">Spicy jalapeno bacon ipsum dolor amet leberkas meatball beef strip steak doner prosciutto. Porchetta corned beef ball tip beef ribs spare ribs pork belly. Turducken alcatra short ribs shankle bacon meatball ground.</p>
+			                <a href="#demo4" class="btn btn-primary" data-toggle="collapse">View Teammates</a>
+							<div id="demo4" class="collapse">
+								<ul class="team-list">
+									<li>Reymond</li>
+									<li>Fiona</li>
+									<li>Ruby</li>
+								</ul>
+							</div>
+			                <div>
+			                	<button id="Finish" class="btn btn-primary rounded action-btn" type="button">Finish</button>
+			                	<button id='Quit' class="btn btn-danger rounded action-btn" type="button">Quit</button>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+	                <!-- <div class="message rounded bg-light p-3 shadow-sm">
+	                    <a class="btn btn-link" href="public_profile.html" role="button">Project Name</a>
+	                    <span class="m-5">BlahBlah description </span>
+	                    <a id="Finish" class="btn btn-primary m-2" href="#" role="button">Finish</a>
+	                    <a id='Quit' class="btn btn-danger m-2" href="#" role="button">Quit</a>
+	                </div> -->
+
+	                <!-- Placeholders -->
+	                <!-- <div class="message">
+	                    
+	                </div>
+	                <div class="message">
+	                    
+	                </div>
+	                <div class="message">
+	                    
+	                </div>
+	                <div class="message">
+	                    
+	                </div> -->
+	            <!-- </div> -->
+        	</div>
+            
+        </div>
+    </div>
+
+    <!-- <div class="row text-center" style="display:flex; flex-wrap: wrap">
+        <div class="col-md-3 col-sm-6">
+            <div class="thumbnail">
+                <a class="btn btn-link" href="public_profile.html" role="button">Project Name</a>
+                    <span class="m-5">BlahBlah description </span>
+                    <a id="Finish" class="btn btn-primary m-2" href="#" role="button">Finish</a>
+                    <a id='Quit' class="btn btn-danger m-2" href="#" role="button">Quit</a>
+            </div>
+        </div>
+    </div> -->
+
+</body>

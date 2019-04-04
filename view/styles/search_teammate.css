@@ -1,0 +1,21 @@
+.input_form{
+  width: 30%;
+  margin-left: 10%;
+
+}
+
+.in-dropdown-input{
+  width: 50%;
+  margin-left: 20%;
+}
+
+.vertical-center {
+  position: absolute;
+  width: 100%;
+  /* min-heght: 100vh; */
+  align-items: center;
+}
+
+body {
+  overflow-x: hidden;
+}
