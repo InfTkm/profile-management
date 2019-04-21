@@ -19,7 +19,7 @@ function login() {
         return;
     }
     const data = {email: email, password: psw}
-
+    console.log(data)
 
     fetch('/users/login', {
         method: 'POST',

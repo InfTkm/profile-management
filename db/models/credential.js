@@ -41,10 +41,11 @@ UserSchema.statics.findByEmailPassword = function(email, password) {
 	const Credential = this
 
 	return Credential.findOne({email: email}).then((user) => {
+		
 		if (!user) {
 			return Promise.reject()
 		}
-		console.log(user)
+		
 		return new Promise((resolve, reject) => {
 			if (password == user.password) {
 				resolve(user)
