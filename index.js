@@ -21,6 +21,7 @@ const { ObjectID } = require('mongodb').ObjectID;
 
 // Import mongoose models
 const { Credential } = require('./db/models/credential.js');
+const { Customer } = require('./db/models/customer.js');
 
 /* SESSION COOKIES*/
 app.use(session({
@@ -35,6 +36,7 @@ app.use(session({
 
 // Add middleware to check for logged-in users
 const sessionChecker = (req, res, next) => {
+
 	if (!req.session.user_id) {
 		res.sendFile(__dirname + '/view/login.html')
 	} else {
@@ -63,20 +65,17 @@ app.post('/users/login', (req, res) => {
 	Credential.findByEmailPassword(email, password).then((cd) => {
 
 		if(!cd) {
-			log(1)
 			res.status(404).send()
 		} else {
-			log(cd)
 			// Add the user to the session cookie that we will
 			// send to the client
 			if (cd.email == 'admin') {
 				req.session.user_id = 'secretadmin'
 				res.redirect('/admin')
+				return
 			}
-			User.findOne({email: email}).then(user =>{
-				req.session.user_id = user._id
-				res.redirect('/input')
-			}).catch(err => res.status(404).send())
+			req.session.user_id = cd._id
+			res.redirect('/input')
 			
 		}
 	}).catch((error) => {
@@ -85,7 +84,7 @@ app.post('/users/login', (req, res) => {
 	})
 })
 app.get('/input', sessionChecker, (req, res) => {
-	res.sendFile(__dirname + '/view/search_group.html')
+	res.sendFile(__dirname + '/view/input.html')
 })
 
 app.get('/admin', (req, res) => {
@@ -106,5 +105,25 @@ app.get('/users/logout', (req, res) => {
 		}
 	})
 })
+
+// Customer
+app.post('/customer/:name/:phone', (req, res) => {
+	const name = req.params.name
+	const phone = req.params.phone
+	Customer.insertMany([{name:name, contact:phone}])
+	res.status(200).send()
+})
+
+app.get('/find', sessionChecker, (req, res) => {
+	Customer.find().then(c => {
+		res.render('view/customer.hbs', {c:c})
+	})
+	
+})
+
+app.get('/customers', sessionChecker, (req, res) => {
+
+})
+
 
 app.listen(port);
