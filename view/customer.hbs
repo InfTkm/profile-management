@@ -5,14 +5,14 @@
     <title>查询</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="/styles/common.css">
 
 </head>
 
 <body class='my-bg'>
     <!-- Navbar from bootstrap docs -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light my-nav-flow">
-        <a href="index.html" class='nav-logo'><img class='nav-logo' src="./images/logo/logo.png"></a>
+        <a href="index.html" class='nav-logo'><img class='nav-logo' src="/images/logo/logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,11 +34,30 @@
         <div class="h-100 row align-items-center justify-content-center" id="imp">
             <div class="text-center shadow-lg p-5 mb-5 bg-white rounded col-lg-10 d-flex flex-column"
                 id='invitation-list'>
+                <form id='search'>
+                    <div class="input-group input-group-lg">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">搜索方式</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Choose...</option>
+                                <option value="1">会员卡号</option>
+                                <option value="2">姓名</option>
+                                <option value="3" selected>联系方式</option>
+                            </select>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Large"
+                            aria-describedby="inputGroup-sizing-sm" id='search_content'>
+                        <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">查询</button>
+                    </div>
+                </form>
                 {{#each c}}
                 <br>
                 <form id="${data._id}" class="message rounded bg-light p-3 shadow-sm"
                     action="/profile/${data.sender_id}" method="get">
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{this.name}}{{this.contact}}">详细信息</button>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+                        data-target="#{{this.name}}{{this.contact}}">详细信息</button>
                     <div id="{{this.name}}{{this.contact}}" class="modal fade" role="dialog">
                         <div class="modal-dialog">
 
@@ -49,7 +68,12 @@
 
                                 </div>
                                 <div class="modal-body">
-                                    <p>{{this.name}}</p>
+                                    <p>姓名：{{this.name}}</p>
+                                    <p>性别：{{this.sex}}</p>
+                                    <p>联系方式：{{this.contact}}</p>
+                                    <p>年龄：{{this.age}}</p>
+                                    <p>备注：{{this.comment}}</p>
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -66,7 +90,7 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="scripts/inbox.js"></script>
+    <script type="text/javascript" src="scripts/customer.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

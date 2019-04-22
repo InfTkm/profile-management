@@ -107,10 +107,13 @@ app.get('/users/logout', (req, res) => {
 })
 
 // Customer
-app.post('/customer/:name/:phone', (req, res) => {
+app.post('/customer/:name/:phone/:sex/:comment/:age', (req, res) => {
 	const name = req.params.name
 	const phone = req.params.phone
-	Customer.insertMany([{name:name, contact:phone}])
+	const sex = req.params.sex
+	const comment = req.params.comment
+	const age = req.params.age
+	Customer.insertMany([{name:name, contact:phone, sex:sex, comment:comment, age:age}])
 	res.status(200).send()
 })
 
@@ -121,7 +124,13 @@ app.get('/find', sessionChecker, (req, res) => {
 	
 })
 
-app.get('/customers', sessionChecker, (req, res) => {
+app.get('/customers/byContact/:contact', sessionChecker, (req, res) => {
+	Customer.find({contact:req.params.contact}).then(c => {
+		res.render('view/customer.hbs', {c:c})
+	}).catch(err => {
+		console.log(err)
+	})
+	
 
 })
 

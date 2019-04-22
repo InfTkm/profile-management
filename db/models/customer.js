@@ -7,7 +7,16 @@ const Customer = mongoose.model('Customer', {
         type: String,
         required: true
     },
+    sex: {
+        type: String
+    },
+    age: {
+        type: String
+    },
     contact: {
+        type: String
+    },
+    comment: {
         type: String
     }
 })

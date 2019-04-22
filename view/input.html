@@ -2,11 +2,11 @@
 <html>
 
 <head>
-    <title>Matchy</title>
+    <title>录入</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/input.css">
-    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="/styles/input.css">
+    <link rel="stylesheet" href="/styles/common.css">
 </head>
 
 <body class="h-100 my-bg overflow-hidden">
@@ -38,20 +38,27 @@
                     <form id="contact">
                         <h3>客户信息表</h3>
                         <h4>请根据提示输入</h4>
+                        
                         <fieldset>
                             <input id='name' placeholder="姓名" type="text" tabindex="1" required autofocus>
                         </fieldset>
                         <fieldset>
+                                性别：
+                                <select id="sex">
+                                    <option value="男" selected>男</option>
+                                    <option value="女">女</option>
+                                  </select>
+                            </fieldset>
+                        <fieldset>
                             <input id='phone' placeholder="联系电话" type="tel" tabindex="2" required>
                         </fieldset>
+                        
+                        
                         <fieldset>
-                            <input placeholder="xxx" type="tel" tabindex="3">
+                            <input placeholder="年龄" id='age' type="text" tabindex="4">
                         </fieldset>
                         <fieldset>
-                            <input placeholder="xxx" type="url" tabindex="4">
-                        </fieldset>
-                        <fieldset>
-                            <textarea placeholder="xxx" tabindex="5"></textarea>
+                            <textarea id='comment' placeholder="备注" tabindex="5"></textarea>
                         </fieldset>
                         <fieldset>
                             <button name="submit" type="submit" id="info-submit"
@@ -71,7 +78,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <script src="scripts/input.js"></script>
+    <script src="/scripts/input.js"></script>
 </body>
 
 </html>
