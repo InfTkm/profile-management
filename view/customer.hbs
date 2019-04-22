@@ -12,37 +12,57 @@
 <body class='my-bg'>
     <!-- Navbar from bootstrap docs -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light my-nav-flow">
-            <a href="index.html" class='nav-logo'><img class='nav-logo' src="./images/logo/logo.png"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="/">主页 <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="/input">录入</a>
-                    <a class="nav-item nav-link active" href="/find">查询</a>
-                    <a class="nav-item nav-link" href="/stats">统计</a>
-                    <!-- <a class="nav-item nav-link" href="/invitation">Invitation</a> -->
-                   
-                </div>
-                <a class="nav-item nav-link" id='logout' href="/users/logout">登出</a>
+        <a href="index.html" class='nav-logo'><img class='nav-logo' src="./images/logo/logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/">主页 <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/input">录入</a>
+                <a class="nav-item nav-link active" href="/find">查询</a>
+                <a class="nav-item nav-link" href="/stats">统计</a>
+                <!-- <a class="nav-item nav-link" href="/invitation">Invitation</a> -->
+
             </div>
-        </nav>
+            <a class="nav-item nav-link" id='logout' href="/users/logout">登出</a>
+        </div>
+    </nav>
 
     <div class="vertical-center pt-5 mt-5">
         <div class="h-100 row align-items-center justify-content-center" id="imp">
             <div class="text-center shadow-lg p-5 mb-5 bg-white rounded col-lg-10 d-flex flex-column"
                 id='invitation-list'>
-            {{#each c}}
-            <br> 
-        <form id="${data._id}" class="message rounded bg-light p-3 shadow-sm" action="/profile/${data.sender_id}" method="get">
-            <button class="btn btn-secondary" type="submit">详细信息</button>
-            <span class="m-5">姓名：{{this.name}}  联系方式：{{this.contact}}</span>
-            {{!-- <a id="accept" class="btn btn-primary m-2 text-white" onclick="submitForm('${data._id}','accept', '${data.sender_id}', '${data.receiver_id}')">Accept</a>
+                {{#each c}}
+                <br>
+                <form id="${data._id}" class="message rounded bg-light p-3 shadow-sm"
+                    action="/profile/${data.sender_id}" method="get">
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{this.name}}{{this.contact}}">详细信息</button>
+                    <div id="{{this.name}}{{this.contact}}" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                </div>
+                                <div class="modal-body">
+                                    <p>{{this.name}}</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <span class="m-5">姓名：{{this.name}} 联系方式：{{this.contact}}</span>
+                    {{!-- <a id="accept" class="btn btn-primary m-2 text-white" onclick="submitForm('${data._id}','accept', '${data.sender_id}', '${data.receiver_id}')">Accept</a>
             <a id='decline' class="btn btn-danger m-2 text-white" onclick="submitForm('${data._id}','decline', '${data.sender_id}', '${data.receiver_id}')">Decline</a> --}}
-        </form>
-            {{/each}}
+                </form>
+                {{/each}}
             </div>
         </div>
     </div>
