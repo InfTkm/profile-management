@@ -87,6 +87,10 @@ app.get('/input', sessionChecker, (req, res) => {
 	res.sendFile(__dirname + '/view/input.html')
 })
 
+app.get('/stats', sessionChecker, (req, res) => {
+	res.send("功能尚未实现请返回 <a href='/input'>返回</a>")
+})
+
 app.get('/admin', (req, res) => {
 	if (req.session.user_id == 'secretadmin') {
 		res.sendFile(__dirname + '/view/admin.html')
@@ -107,13 +111,14 @@ app.get('/users/logout', (req, res) => {
 })
 
 // Customer
-app.post('/customer/:name/:phone/:sex/:comment/:age', (req, res) => {
+app.post('/customer/:name/:phone/:sex/:comment/:age/:vip', (req, res) => {
 	const name = req.params.name
 	const phone = req.params.phone
 	const sex = req.params.sex
 	const comment = req.params.comment
 	const age = req.params.age
-	Customer.insertMany([{name:name, contact:phone, sex:sex, comment:comment, age:age}])
+	const vip = req.params.vip
+	Customer.insertMany([{name:name, contact:phone, sex:sex, comment:comment, age:age, vip: vip}])
 	res.status(200).send()
 })
 
@@ -127,12 +132,52 @@ app.get('/find', sessionChecker, (req, res) => {
 app.get('/customers/byContact/:contact', sessionChecker, (req, res) => {
 	Customer.find({contact:req.params.contact}).then(c => {
 		res.render('view/customer.hbs', {c:c})
-	}).catch(err => {
-		console.log(err)
 	})
-	
-
 })
 
+app.get('/customers/byVIP/:vip', sessionChecker, (req, res) => {
+	Customer.find({vip:req.params.vip}).then(c => {
+		res.render('view/customer.hbs', {c:c})
+	}).catch(err => log(err))
+})
 
+app.get('/customers/byName/:name', sessionChecker, (req, res) => {
+	Customer.find({name:req.params.name}).then(c => {
+		res.render('view/customer.hbs', {c:c})
+	})
+})
+
+app.get('/customer/update/:vip', sessionChecker, (req, res) => {
+	Customer.findOne({vip:req.params.vip}).then(c => {
+		const isMale = c.sex=='男'
+		res.render('view/update.hbs', {c:c, isMale:isMale})
+	})
+})
+
+app.patch('/customer/update', (req, res) => {
+	const name = req.body.name
+	const phone = req.body.phone
+	const sex = req.body.sex
+	const comment = req.body.comment
+	const age = req.body.age
+	const vip = req.body.vip
+	log(22)
+	Customer.findOne({vip:vip}).then(c => {
+		log(c)
+		c.name = name
+		c.phone = phone
+		c.sex = sex
+		c.comment = comment
+		c.age = age
+		c.save()
+		res.status(200).send()
+	}).catch(err => log(err))
+	res.status(200).send()
+})
+
+// remember to delete
+app.get('/DROPALL', (req, res) => {
+	Customer.deleteMany({}).then()
+	res.status(200).send()
+})
 app.listen(port);

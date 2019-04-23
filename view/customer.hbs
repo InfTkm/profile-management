@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/customer.css">
 
 </head>
 
@@ -40,21 +41,20 @@
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="inputGroupSelect01">搜索方式</label>
                             </div>
-                            <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
-                                <option value="1">会员卡号</option>
+                            <select class="custom-select" id="search_method">
+                                <option value="1" selected>会员卡号</option>
                                 <option value="2">姓名</option>
-                                <option value="3" selected>联系方式</option>
+                                <option value="3">联系方式</option>
                             </select>
                         </div>
                         <input type="text" class="form-control" aria-label="Large"
-                            aria-describedby="inputGroup-sizing-sm" id='search_content'>
+                            aria-describedby="inputGroup-sizing-sm" id='search_content' required>
                         <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">查询</button>
                     </div>
                 </form>
                 {{#each c}}
                 <br>
-                <form id="${data._id}" class="message rounded bg-light p-3 shadow-sm"
+                <form id="temp" class="message rounded bg-light p-3 shadow-sm"
                     action="/profile/${data.sender_id}" method="get">
                     <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
                         data-target="#{{this.name}}{{this.contact}}">详细信息</button>
@@ -68,6 +68,7 @@
 
                                 </div>
                                 <div class="modal-body">
+                                    <p>卡号：{{this.vip}}</p>
                                     <p>姓名：{{this.name}}</p>
                                     <p>性别：{{this.sex}}</p>
                                     <p>联系方式：{{this.contact}}</p>
@@ -76,13 +77,15 @@
 
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <a class='btn btn-warning text-light' href="/customer/update/{{this.vip}}">更改</a>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                    <span class="m-5">姓名：{{this.name}} 联系方式：{{this.contact}}</span>
+                    <span class="m-5">卡号：{{this.vip}} 姓名：{{this.name}} 联系方式：{{this.contact}}</span>
+                    <a class='btn btn-warning text-light' href="/customer/update/{{this.vip}}">更改</a>
                     {{!-- <a id="accept" class="btn btn-primary m-2 text-white" onclick="submitForm('${data._id}','accept', '${data.sender_id}', '${data.receiver_id}')">Accept</a>
             <a id='decline' class="btn btn-danger m-2 text-white" onclick="submitForm('${data._id}','decline', '${data.sender_id}', '${data.receiver_id}')">Decline</a> --}}
                 </form>
@@ -90,7 +93,7 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="scripts/customer.js"></script>
+    <script type="text/javascript" src="/scripts/customer.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

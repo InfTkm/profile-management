@@ -29,6 +29,15 @@
   position: absolute;
 }
 
+.update-container {
+  max-width: 80vw;
+  width: 100%;
+  margin: 0 auto;
+  top: 3vh;
+  left: 10vw;
+  position: absolute;
+}
+
 #contact input[type="text"],
 #contact input[type="email"],
 #contact input[type="tel"],

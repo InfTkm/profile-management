@@ -15,7 +15,7 @@ function login() {
     const email = document.getElementById('email').value;
     const psw = document.getElementById('password').value;
     if (email == '' || psw == '') {
-        window.alert("Please enter all information.")
+        window.alert("请输入信息")
         return;
     }
     const data = {email: email, password: psw}
@@ -27,7 +27,7 @@ function login() {
         body: JSON.stringify(data),
     }).then(res => {
         if (res.status == 404) {
-            window.alert("Email or password not valid.")
+            window.alert("用户名或密码不正确")
         } else {
             location.href = res.url;
         }

@@ -18,6 +18,9 @@ const Customer = mongoose.model('Customer', {
     },
     comment: {
         type: String
+    },
+    vip: {
+        type: String
     }
 })
 
