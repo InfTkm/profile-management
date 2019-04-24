@@ -97,3 +97,7 @@ body, html {
 body {
     overflow-x: hidden;
 }
+
+.minwidth10 {
+    min-width: 10vw;
+}

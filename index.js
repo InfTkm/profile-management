@@ -87,9 +87,6 @@ app.get('/input', sessionChecker, (req, res) => {
 	res.sendFile(__dirname + '/view/input.html')
 })
 
-app.get('/stats', sessionChecker, (req, res) => {
-	res.send("功能尚未实现请返回 <a href='/input'>返回</a>")
-})
 
 app.get('/admin', (req, res) => {
 	if (req.session.user_id == 'secretadmin') {
@@ -179,5 +176,12 @@ app.patch('/customer/update', (req, res) => {
 app.get('/DROPALL', (req, res) => {
 	Customer.deleteMany({}).then()
 	res.status(200).send()
+})
+
+app.get('/stats', sessionChecker, (req, res) => {
+	Customer.find({}).then(c => {
+		res.render('view/stats.hbs', {total: c.length})
+	})
+	
 })
 app.listen(port);
