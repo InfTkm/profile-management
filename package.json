@@ -25,7 +25,7 @@
     "express-session": "*",
     "bcryptjs": "^2.4.3",
     "crypto-js": "^3.1.9-1",
-    "handlebars": "^4.0.12",
+    "handlebars": "^4.7.7",
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.3.12",
     "validator": "^10.9.0"
