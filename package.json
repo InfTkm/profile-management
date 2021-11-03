@@ -28,6 +28,6 @@
     "handlebars": "^4.0.12",
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.3.12",
-    "validator": "^10.9.0"
+    "validator": "^13.7.0"
   }
 }
